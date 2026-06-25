@@ -1,0 +1,63 @@
+<div class="page-header">
+  <h1><%= titulo %></h1>
+
+  <div class="page-actions">
+    <a href="/aluno" class="btn btn-outline-secondary">Voltar</a>
+  </div>
+</div>
+
+<div class="form-panel">
+  <form action="/aluno/edit/<%= aluno.id_alu %>" method="POST">
+    <div class="mb-3">
+      <label for="nome_alu" class="form-label">Nome</label>
+      <input type="text" id="nome_alu" name="nome_alu" class="form-control" maxlength="150" value="<%= aluno.nome_alu %>" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="data_nascimento_alu" class="form-label">Data de nascimento</label>
+      <input
+        type="date"
+        id="data_nascimento_alu"
+        name="data_nascimento_alu"
+        class="form-control"
+        value="<%= aluno.data_nascimento_alu ? new Date(aluno.data_nascimento_alu).toISOString().slice(0, 10) : '' %>"
+        required
+      >
+    </div>
+
+    <div class="mb-3">
+      <label for="curso" class="form-label">Curso</label>
+      <select id="curso" name="curso" class="form-select" required>
+        <option value="">Selecione um curso</option>
+        <% cursos.forEach(curso => { %>
+          <option value="<%= curso.id_cur %>" <%= aluno.curso?.id_cur === curso.id_cur ? 'selected' : '' %>><%= curso.nome_cur %></option>
+        <% }) %>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="turma" class="form-label">Turma</label>
+      <select id="turma" name="turma" class="form-select" required>
+        <option value="">Selecione uma turma</option>
+        <% turmas.forEach(turma => { %>
+          <option value="<%= turma.id_tur %>" <%= aluno.turma?.id_tur === turma.id_tur ? 'selected' : '' %>><%= turma.nome_tur %> - <%= turma.ano_tur %></option>
+        <% }) %>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="endereco" class="form-label">Endereco</label>
+      <select id="endereco" name="endereco" class="form-select" required>
+        <option value="">Selecione um endereco</option>
+        <% enderecos.forEach(endereco => { %>
+          <option value="<%= endereco.id_end %>" <%= aluno.endereco?.id_end === endereco.id_end ? 'selected' : '' %>><%= endereco.logradouro_end %>, <%= endereco.numero_end %> - <%= endereco.cidade_end %></option>
+        <% }) %>
+      </select>
+    </div>
+
+    <div class="page-actions">
+      <button type="submit" class="btn btn-primary">Salvar</button>
+      <a href="/aluno" class="btn btn-outline-secondary">Cancelar</a>
+    </div>
+  </form>
+</div>

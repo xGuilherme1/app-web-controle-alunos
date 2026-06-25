@@ -1,0 +1,21 @@
+<div class="page-header">
+  <h1><%= titulo %></h1>
+
+  <div class="page-actions">
+    <a href="/professor" class="btn btn-outline-secondary">Voltar</a>
+    <a href="/professor/edit/<%= professor.id_pro %>" class="btn btn-primary">Editar</a>
+  </div>
+</div>
+
+<div class="details-panel">
+  <dl class="details-list">
+    <dt>ID</dt>
+    <dd><%= professor.id_pro %></dd>
+
+    <dt>Nome</dt>
+    <dd><%= professor.nome_pro %></dd>
+
+    <dt>Titulacao</dt>
+    <dd><%= professor.titulacao_pro %></dd>
+  </dl>
+</div>

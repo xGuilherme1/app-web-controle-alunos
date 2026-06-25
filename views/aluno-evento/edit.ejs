@@ -1,0 +1,31 @@
+<div class="page-header">
+  <h1><%= titulo %></h1>
+
+  <div class="page-actions">
+    <a href="/aluno-evento" class="btn btn-outline-secondary">Voltar</a>
+  </div>
+</div>
+
+<div class="form-panel">
+  <form action="/aluno-evento/edit/<%= vinculo.alunoId %>/<%= vinculo.eventoId %>" method="POST">
+    <div class="mb-3">
+      <label class="form-label">Aluno</label>
+      <input type="text" class="form-control" value="<%= vinculo.aluno?.nome_alu || '-' %>" disabled>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Evento</label>
+      <input type="text" class="form-control" value="<%= vinculo.evento?.titulo_eve || '-' %>" disabled>
+    </div>
+
+    <div class="form-check mb-3">
+      <input type="checkbox" id="presenca" name="presenca" class="form-check-input" <%= vinculo.presenca ? 'checked' : '' %>>
+      <label for="presenca" class="form-check-label">Presenca confirmada</label>
+    </div>
+
+    <div class="page-actions">
+      <button type="submit" class="btn btn-primary">Salvar</button>
+      <a href="/aluno-evento" class="btn btn-outline-secondary">Cancelar</a>
+    </div>
+  </form>
+</div>

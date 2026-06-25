@@ -1,0 +1,46 @@
+<div class="page-header">
+  <h1><%= titulo %></h1>
+
+  <div class="page-actions">
+    <a href="/departamento/create" class="btn btn-primary">+ Novo Departamento</a>
+  </div>
+</div>
+
+<div class="data-panel">
+  <div class="table-responsive">
+    <table class="table table-hover data-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th class="actions-cell">Acoes</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% if (departamentos.length === 0) { %>
+          <tr>
+            <td colspan="3" class="empty-state">Nenhum departamento cadastrado.</td>
+          </tr>
+        <% } %>
+
+        <% departamentos.forEach(departamento => { %>
+          <tr>
+            <td><%= departamento.id_dep %></td>
+            <td><strong><%= departamento.nome_dep %></strong></td>
+            <td class="actions-cell">
+              <div class="action-group">
+                <a href="/departamento/view/<%= departamento.id_dep %>" class="btn btn-sm btn-outline-secondary">Ver</a>
+                <a href="/departamento/edit/<%= departamento.id_dep %>" class="btn btn-sm btn-outline-primary">Editar</a>
+
+                <form action="/departamento/delete/<%= departamento.id_dep %>" method="POST">
+                  <button type="submit" class="btn btn-sm btn-outline-danger">Excluir</button>
+                </form>
+              </div>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+</div>

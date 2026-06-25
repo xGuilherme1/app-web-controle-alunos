@@ -1,0 +1,40 @@
+<div class="page-header">
+  <h1><%= titulo %></h1>
+
+  <div class="page-actions">
+    <a href="/professor" class="btn btn-outline-secondary">Voltar</a>
+  </div>
+</div>
+
+<div class="form-panel">
+  <form action="/professor/create" method="POST">
+    <div class="mb-3">
+      <label for="nome_pro" class="form-label">Nome</label>
+      <input
+        type="text"
+        id="nome_pro"
+        name="nome_pro"
+        class="form-control"
+        maxlength="150"
+        required
+      >
+    </div>
+
+    <div class="mb-3">
+      <label for="titulacao_pro" class="form-label">Titulacao</label>
+      <input
+        type="text"
+        id="titulacao_pro"
+        name="titulacao_pro"
+        class="form-control"
+        maxlength="100"
+        required
+      >
+    </div>
+
+    <div class="page-actions">
+      <button type="submit" class="btn btn-primary">Salvar</button>
+      <a href="/professor" class="btn btn-outline-secondary">Cancelar</a>
+    </div>
+  </form>
+</div>

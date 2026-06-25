@@ -1,0 +1,48 @@
+<div class="page-header">
+  <h1><%= titulo %></h1>
+
+  <div class="page-actions">
+    <a href="/turma/create" class="btn btn-primary">+ Nova Turma</a>
+  </div>
+</div>
+
+<div class="data-panel">
+  <div class="table-responsive">
+    <table class="table table-hover data-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>Ano</th>
+          <th class="actions-cell">Acoes</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% if (turmas.length === 0) { %>
+          <tr>
+            <td colspan="4" class="empty-state">Nenhuma turma cadastrada.</td>
+          </tr>
+        <% } %>
+
+        <% turmas.forEach(turma => { %>
+          <tr>
+            <td><%= turma.id_tur %></td>
+            <td><strong><%= turma.nome_tur %></strong></td>
+            <td><%= turma.ano_tur %></td>
+            <td class="actions-cell">
+              <div class="action-group">
+                <a href="/turma/view/<%= turma.id_tur %>" class="btn btn-sm btn-outline-secondary">Ver</a>
+                <a href="/turma/edit/<%= turma.id_tur %>" class="btn btn-sm btn-outline-primary">Editar</a>
+
+                <form action="/turma/delete/<%= turma.id_tur %>" method="POST">
+                  <button type="submit" class="btn btn-sm btn-outline-danger">Excluir</button>
+                </form>
+              </div>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+</div>

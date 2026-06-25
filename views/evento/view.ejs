@@ -1,0 +1,24 @@
+<div class="page-header">
+  <h1><%= titulo %></h1>
+
+  <div class="page-actions">
+    <a href="/evento" class="btn btn-outline-secondary">Voltar</a>
+    <a href="/evento/edit/<%= evento.id_eve %>" class="btn btn-primary">Editar</a>
+  </div>
+</div>
+
+<div class="details-panel">
+  <dl class="details-list">
+    <dt>ID</dt>
+    <dd><%= evento.id_eve %></dd>
+
+    <dt>Titulo</dt>
+    <dd><%= evento.titulo_eve %></dd>
+
+    <dt>Data</dt>
+    <dd><%= dateFormat(evento.data_eve) %></dd>
+
+    <dt>Local</dt>
+    <dd><%= evento.local_eve %></dd>
+  </dl>
+</div>

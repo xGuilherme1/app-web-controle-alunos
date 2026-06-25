@@ -1,0 +1,54 @@
+<div class="page-header">
+  <h1><%= titulo %></h1>
+
+  <div class="page-actions">
+    <a href="/aluno/create" class="btn btn-primary">+ Novo Aluno</a>
+  </div>
+</div>
+
+<div class="data-panel">
+  <div class="table-responsive">
+    <table class="table table-hover data-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>Nascimento</th>
+          <th>Curso</th>
+          <th>Turma</th>
+          <th>Endereco</th>
+          <th class="actions-cell">Acoes</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% if (alunos.length === 0) { %>
+          <tr>
+            <td colspan="7" class="empty-state">Nenhum aluno cadastrado.</td>
+          </tr>
+        <% } %>
+
+        <% alunos.forEach(aluno => { %>
+          <tr>
+            <td><%= aluno.id_alu %></td>
+            <td><strong><%= aluno.nome_alu %></strong></td>
+            <td><%= dateFormat(aluno.data_nascimento_alu) %></td>
+            <td><%= aluno.curso?.nome_cur || '-' %></td>
+            <td><%= aluno.turma?.nome_tur || '-' %></td>
+            <td><%= aluno.endereco ? `${aluno.endereco.logradouro_end}, ${aluno.endereco.numero_end}` : '-' %></td>
+            <td class="actions-cell">
+              <div class="action-group">
+                <a href="/aluno/view/<%= aluno.id_alu %>" class="btn btn-sm btn-outline-secondary">Ver</a>
+                <a href="/aluno/edit/<%= aluno.id_alu %>" class="btn btn-sm btn-outline-primary">Editar</a>
+
+                <form action="/aluno/delete/<%= aluno.id_alu %>" method="POST">
+                  <button type="submit" class="btn btn-sm btn-outline-danger">Excluir</button>
+                </form>
+              </div>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<div class="page-header">
+  <h1><%= titulo %></h1>
+
+  <div class="page-actions">
+    <a href="/aluno-evento" class="btn btn-outline-secondary">Voltar</a>
+    <a href="/aluno-evento/edit/<%= vinculo.alunoId %>/<%= vinculo.eventoId %>" class="btn btn-primary">Editar</a>
+  </div>
+</div>
+
+<div class="details-panel">
+  <dl class="details-list">
+    <dt>Aluno</dt>
+    <dd><%= vinculo.aluno?.nome_alu || '-' %></dd>
+
+    <dt>Evento</dt>
+    <dd><%= vinculo.evento?.titulo_eve || '-' %></dd>
+
+    <dt>Presenca</dt>
+    <dd><%= vinculo.presenca ? 'Sim' : 'Nao' %></dd>
+  </dl>
+</div>

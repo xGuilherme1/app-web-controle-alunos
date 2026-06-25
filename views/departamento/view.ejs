@@ -1,0 +1,18 @@
+<div class="page-header">
+  <h1><%= titulo %></h1>
+
+  <div class="page-actions">
+    <a href="/departamento" class="btn btn-outline-secondary">Voltar</a>
+    <a href="/departamento/edit/<%= departamento.id_dep %>" class="btn btn-primary">Editar</a>
+  </div>
+</div>
+
+<div class="details-panel">
+  <dl class="details-list">
+    <dt>ID</dt>
+    <dd><%= departamento.id_dep %></dd>
+
+    <dt>Nome</dt>
+    <dd><%= departamento.nome_dep %></dd>
+  </dl>
+</div>

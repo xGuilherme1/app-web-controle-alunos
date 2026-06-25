@@ -1,0 +1,41 @@
+<div class="page-header">
+  <h1><%= titulo %></h1>
+
+  <div class="page-actions">
+    <a href="/ocorrencia" class="btn btn-outline-secondary">Voltar</a>
+  </div>
+</div>
+
+<div class="form-panel">
+  <form action="/ocorrencia/create" method="POST">
+    <div class="mb-3">
+      <label for="tipo_oco" class="form-label">Tipo</label>
+      <input type="text" id="tipo_oco" name="tipo_oco" class="form-control" maxlength="100" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="data_oco" class="form-label">Data</label>
+      <input type="date" id="data_oco" name="data_oco" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="aluno" class="form-label">Aluno</label>
+      <select id="aluno" name="aluno" class="form-select" required>
+        <option value="">Selecione um aluno</option>
+        <% alunos.forEach(aluno => { %>
+          <option value="<%= aluno.id_alu %>"><%= aluno.nome_alu %></option>
+        <% }) %>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="descricao_oco" class="form-label">Descricao</label>
+      <textarea id="descricao_oco" name="descricao_oco" class="form-control" maxlength="500" rows="4" required></textarea>
+    </div>
+
+    <div class="page-actions">
+      <button type="submit" class="btn btn-primary">Salvar</button>
+      <a href="/ocorrencia" class="btn btn-outline-secondary">Cancelar</a>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,49 @@
+<div class="page-header">
+  <h1><%= titulo %></h1>
+
+  <div class="page-actions">
+    <a href="/ocorrencia/create" class="btn btn-primary">+ Nova Ocorrencia</a>
+  </div>
+</div>
+
+<div class="data-panel">
+  <div class="table-responsive">
+    <table class="table table-hover data-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Tipo</th>
+          <th>Data</th>
+          <th>Aluno</th>
+          <th class="actions-cell">Acoes</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% if (ocorrencias.length === 0) { %>
+          <tr>
+            <td colspan="5" class="empty-state">Nenhuma ocorrencia cadastrada.</td>
+          </tr>
+        <% } %>
+
+        <% ocorrencias.forEach(ocorrencia => { %>
+          <tr>
+            <td><%= ocorrencia.id_oco %></td>
+            <td><strong><%= ocorrencia.tipo_oco %></strong></td>
+            <td><%= dateFormat(ocorrencia.data_oco) %></td>
+            <td><%= ocorrencia.aluno?.nome_alu || '-' %></td>
+            <td class="actions-cell">
+              <div class="action-group">
+                <a href="/ocorrencia/view/<%= ocorrencia.id_oco %>" class="btn btn-sm btn-outline-secondary">Ver</a>
+                <a href="/ocorrencia/edit/<%= ocorrencia.id_oco %>" class="btn btn-sm btn-outline-primary">Editar</a>
+                <form action="/ocorrencia/delete/<%= ocorrencia.id_oco %>" method="POST">
+                  <button type="submit" class="btn btn-sm btn-outline-danger">Excluir</button>
+                </form>
+              </div>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+</div>

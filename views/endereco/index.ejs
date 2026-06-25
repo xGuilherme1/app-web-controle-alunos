@@ -1,0 +1,52 @@
+<div class="page-header">
+  <h1><%= titulo %></h1>
+
+  <div class="page-actions">
+    <a href="/endereco/create" class="btn btn-primary">+ Novo Endereco</a>
+  </div>
+</div>
+
+<div class="data-panel">
+  <div class="table-responsive">
+    <table class="table table-hover data-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Logradouro</th>
+          <th>Numero</th>
+          <th>Cidade</th>
+          <th>Estado</th>
+          <th class="actions-cell">Acoes</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% if (enderecos.length === 0) { %>
+          <tr>
+            <td colspan="6" class="empty-state">Nenhum endereco cadastrado.</td>
+          </tr>
+        <% } %>
+
+        <% enderecos.forEach(endereco => { %>
+          <tr>
+            <td><%= endereco.id_end %></td>
+            <td><strong><%= endereco.logradouro_end %></strong></td>
+            <td><%= endereco.numero_end %></td>
+            <td><%= endereco.cidade_end %></td>
+            <td><%= endereco.estado_end %></td>
+            <td class="actions-cell">
+              <div class="action-group">
+                <a href="/endereco/view/<%= endereco.id_end %>" class="btn btn-sm btn-outline-secondary">Ver</a>
+                <a href="/endereco/edit/<%= endereco.id_end %>" class="btn btn-sm btn-outline-primary">Editar</a>
+
+                <form action="/endereco/delete/<%= endereco.id_end %>" method="POST">
+                  <button type="submit" class="btn btn-sm btn-outline-danger">Excluir</button>
+                </form>
+              </div>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+</div>

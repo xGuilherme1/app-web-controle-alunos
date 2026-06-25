@@ -1,0 +1,21 @@
+<div class="page-header">
+  <h1><%= titulo %></h1>
+
+  <div class="page-actions">
+    <a href="/turma" class="btn btn-outline-secondary">Voltar</a>
+    <a href="/turma/edit/<%= turma.id_tur %>" class="btn btn-primary">Editar</a>
+  </div>
+</div>
+
+<div class="details-panel">
+  <dl class="details-list">
+    <dt>ID</dt>
+    <dd><%= turma.id_tur %></dd>
+
+    <dt>Nome</dt>
+    <dd><%= turma.nome_tur %></dd>
+
+    <dt>Ano</dt>
+    <dd><%= turma.ano_tur %></dd>
+  </dl>
+</div>

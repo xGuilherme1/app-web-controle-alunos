@@ -1,0 +1,68 @@
+<div class="page-header">
+  <h1><%= titulo %></h1>
+
+  <div class="page-actions">
+    <a href="/endereco" class="btn btn-outline-secondary">Voltar</a>
+  </div>
+</div>
+
+<div class="form-panel">
+  <form action="/endereco/edit/<%= endereco.id_end %>" method="POST">
+    <div class="mb-3">
+      <label for="logradouro_end" class="form-label">Logradouro</label>
+      <input
+        type="text"
+        id="logradouro_end"
+        name="logradouro_end"
+        class="form-control"
+        maxlength="150"
+        value="<%= endereco.logradouro_end %>"
+        required
+      >
+    </div>
+
+    <div class="mb-3">
+      <label for="numero_end" class="form-label">Numero</label>
+      <input
+        type="text"
+        id="numero_end"
+        name="numero_end"
+        class="form-control"
+        maxlength="20"
+        value="<%= endereco.numero_end %>"
+        required
+      >
+    </div>
+
+    <div class="mb-3">
+      <label for="cidade_end" class="form-label">Cidade</label>
+      <input
+        type="text"
+        id="cidade_end"
+        name="cidade_end"
+        class="form-control"
+        maxlength="100"
+        value="<%= endereco.cidade_end %>"
+        required
+      >
+    </div>
+
+    <div class="mb-3">
+      <label for="estado_end" class="form-label">Estado</label>
+      <input
+        type="text"
+        id="estado_end"
+        name="estado_end"
+        class="form-control"
+        maxlength="50"
+        value="<%= endereco.estado_end %>"
+        required
+      >
+    </div>
+
+    <div class="page-actions">
+      <button type="submit" class="btn btn-primary">Salvar</button>
+      <a href="/endereco" class="btn btn-outline-secondary">Cancelar</a>
+    </div>
+  </form>
+</div>

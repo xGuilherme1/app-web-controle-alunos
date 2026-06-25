@@ -1,0 +1,41 @@
+<div class="page-header">
+  <h1><%= titulo %></h1>
+
+  <div class="page-actions">
+    <a href="/aluno-evento" class="btn btn-outline-secondary">Voltar</a>
+  </div>
+</div>
+
+<div class="form-panel">
+  <form action="/aluno-evento/create" method="POST">
+    <div class="mb-3">
+      <label for="aluno" class="form-label">Aluno</label>
+      <select id="aluno" name="aluno" class="form-select" required>
+        <option value="">Selecione um aluno</option>
+        <% alunos.forEach(aluno => { %>
+          <option value="<%= aluno.id_alu %>"><%= aluno.nome_alu %></option>
+        <% }) %>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="evento" class="form-label">Evento</label>
+      <select id="evento" name="evento" class="form-select" required>
+        <option value="">Selecione um evento</option>
+        <% eventos.forEach(evento => { %>
+          <option value="<%= evento.id_eve %>"><%= evento.titulo_eve %> - <%= dateFormat(evento.data_eve) %></option>
+        <% }) %>
+      </select>
+    </div>
+
+    <div class="form-check mb-3">
+      <input type="checkbox" id="presenca" name="presenca" class="form-check-input">
+      <label for="presenca" class="form-check-label">Presenca confirmada</label>
+    </div>
+
+    <div class="page-actions">
+      <button type="submit" class="btn btn-primary">Salvar</button>
+      <a href="/aluno-evento" class="btn btn-outline-secondary">Cancelar</a>
+    </div>
+  </form>
+</div>

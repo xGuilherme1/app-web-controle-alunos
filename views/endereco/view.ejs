@@ -1,0 +1,27 @@
+<div class="page-header">
+  <h1><%= titulo %></h1>
+
+  <div class="page-actions">
+    <a href="/endereco" class="btn btn-outline-secondary">Voltar</a>
+    <a href="/endereco/edit/<%= endereco.id_end %>" class="btn btn-primary">Editar</a>
+  </div>
+</div>
+
+<div class="details-panel">
+  <dl class="details-list">
+    <dt>ID</dt>
+    <dd><%= endereco.id_end %></dd>
+
+    <dt>Logradouro</dt>
+    <dd><%= endereco.logradouro_end %></dd>
+
+    <dt>Numero</dt>
+    <dd><%= endereco.numero_end %></dd>
+
+    <dt>Cidade</dt>
+    <dd><%= endereco.cidade_end %></dd>
+
+    <dt>Estado</dt>
+    <dd><%= endereco.estado_end %></dd>
+  </dl>
+</div>

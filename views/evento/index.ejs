@@ -1,0 +1,49 @@
+<div class="page-header">
+  <h1><%= titulo %></h1>
+
+  <div class="page-actions">
+    <a href="/evento/create" class="btn btn-primary">+ Novo Evento</a>
+  </div>
+</div>
+
+<div class="data-panel">
+  <div class="table-responsive">
+    <table class="table table-hover data-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Titulo</th>
+          <th>Data</th>
+          <th>Local</th>
+          <th class="actions-cell">Acoes</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% if (eventos.length === 0) { %>
+          <tr>
+            <td colspan="5" class="empty-state">Nenhum evento cadastrado.</td>
+          </tr>
+        <% } %>
+
+        <% eventos.forEach(evento => { %>
+          <tr>
+            <td><%= evento.id_eve %></td>
+            <td><strong><%= evento.titulo_eve %></strong></td>
+            <td><%= dateFormat(evento.data_eve) %></td>
+            <td><%= evento.local_eve %></td>
+            <td class="actions-cell">
+              <div class="action-group">
+                <a href="/evento/view/<%= evento.id_eve %>" class="btn btn-sm btn-outline-secondary">Ver</a>
+                <a href="/evento/edit/<%= evento.id_eve %>" class="btn btn-sm btn-outline-primary">Editar</a>
+                <form action="/evento/delete/<%= evento.id_eve %>" method="POST">
+                  <button type="submit" class="btn btn-sm btn-outline-danger">Excluir</button>
+                </form>
+              </div>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<div class="page-header">
+  <h1><%= titulo %></h1>
+
+  <div class="page-actions">
+    <a href="/departamento" class="btn btn-outline-secondary">Voltar</a>
+  </div>
+</div>
+
+<div class="form-panel">
+  <form action="/departamento/edit/<%= departamento.id_dep %>" method="POST">
+    <div class="mb-3">
+      <label for="nome_dep" class="form-label">Nome</label>
+      <input
+        type="text"
+        id="nome_dep"
+        name="nome_dep"
+        class="form-control"
+        maxlength="100"
+        value="<%= departamento.nome_dep %>"
+        required
+      >
+    </div>
+
+    <div class="page-actions">
+      <button type="submit" class="btn btn-primary">Salvar</button>
+      <a href="/departamento" class="btn btn-outline-secondary">Cancelar</a>
+    </div>
+  </form>
+</div>

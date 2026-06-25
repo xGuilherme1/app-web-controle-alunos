@@ -1,0 +1,31 @@
+<div class="page-header">
+  <h1><%= titulo %></h1>
+
+  <div class="page-actions">
+    <a href="/aluno-disciplina" class="btn btn-outline-secondary">Voltar</a>
+  </div>
+</div>
+
+<div class="form-panel">
+  <form action="/aluno-disciplina/edit/<%= vinculo.alunoId %>/<%= vinculo.disciplinaId %>" method="POST">
+    <div class="mb-3">
+      <label class="form-label">Aluno</label>
+      <input type="text" class="form-control" value="<%= vinculo.aluno?.nome_alu || '-' %>" disabled>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Disciplina</label>
+      <input type="text" class="form-control" value="<%= vinculo.disciplina?.nome_dis || '-' %>" disabled>
+    </div>
+
+    <div class="mb-3">
+      <label for="nota" class="form-label">Nota</label>
+      <input type="number" id="nota" name="nota" class="form-control" min="0" max="10" step="0.01" value="<%= vinculo.nota ?? '' %>">
+    </div>
+
+    <div class="page-actions">
+      <button type="submit" class="btn btn-primary">Salvar</button>
+      <a href="/aluno-disciplina" class="btn btn-outline-secondary">Cancelar</a>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,51 @@
+<div class="page-header">
+  <h1><%= titulo %></h1>
+
+  <div class="page-actions">
+    <a href="/curso/create" class="btn btn-primary">+ Novo Curso</a>
+  </div>
+</div>
+
+<div class="data-panel">
+  <div class="table-responsive">
+    <table class="table table-hover data-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>Carga Horaria</th>
+          <th>Departamento</th>
+          <th class="actions-cell">Acoes</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% if (cursos.length === 0) { %>
+          <tr>
+            <td colspan="5" class="empty-state">Nenhum curso cadastrado.</td>
+          </tr>
+        <% } %>
+
+        <% cursos.forEach(curso => { %>
+          <tr>
+            <td><%= curso.id_cur %></td>
+            <td><strong><%= curso.nome_cur %></strong></td>
+            <td><%= curso.carga_horaria_cur %> h</td>
+            <td><%= curso.departamento?.nome_dep || '-' %></td>
+
+            <td class="actions-cell">
+              <div class="action-group">
+                <a href="/curso/view/<%= curso.id_cur %>" class="btn btn-sm btn-outline-secondary">Ver</a>
+                <a href="/curso/edit/<%= curso.id_cur %>" class="btn btn-sm btn-outline-primary">Editar</a>
+
+                <form action="/curso/delete/<%= curso.id_cur %>" method="POST">
+                  <button type="submit" class="btn btn-sm btn-outline-danger">Excluir</button>
+                </form>
+              </div>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,47 @@
+<div class="page-header">
+  <h1><%= titulo %></h1>
+
+  <div class="page-actions">
+    <a href="/aluno-disciplina/create" class="btn btn-primary">+ Novo Vinculo</a>
+  </div>
+</div>
+
+<div class="data-panel">
+  <div class="table-responsive">
+    <table class="table table-hover data-table">
+      <thead>
+        <tr>
+          <th>Aluno</th>
+          <th>Disciplina</th>
+          <th>Nota</th>
+          <th class="actions-cell">Acoes</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% if (vinculos.length === 0) { %>
+          <tr>
+            <td colspan="4" class="empty-state">Nenhum vinculo cadastrado.</td>
+          </tr>
+        <% } %>
+
+        <% vinculos.forEach(vinculo => { %>
+          <tr>
+            <td><strong><%= vinculo.aluno?.nome_alu || '-' %></strong></td>
+            <td><%= vinculo.disciplina?.nome_dis || '-' %></td>
+            <td><%= vinculo.nota ?? '-' %></td>
+            <td class="actions-cell">
+              <div class="action-group">
+                <a href="/aluno-disciplina/view/<%= vinculo.alunoId %>/<%= vinculo.disciplinaId %>" class="btn btn-sm btn-outline-secondary">Ver</a>
+                <a href="/aluno-disciplina/edit/<%= vinculo.alunoId %>/<%= vinculo.disciplinaId %>" class="btn btn-sm btn-outline-primary">Editar</a>
+                <form action="/aluno-disciplina/delete/<%= vinculo.alunoId %>/<%= vinculo.disciplinaId %>" method="POST">
+                  <button type="submit" class="btn btn-sm btn-outline-danger">Excluir</button>
+                </form>
+              </div>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+</div>

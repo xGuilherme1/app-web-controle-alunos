@@ -1,0 +1,31 @@
+<div class="page-header">
+  <h1><%= titulo %></h1>
+
+  <div class="page-actions">
+    <a href="/evento" class="btn btn-outline-secondary">Voltar</a>
+  </div>
+</div>
+
+<div class="form-panel">
+  <form action="/evento/create" method="POST">
+    <div class="mb-3">
+      <label for="titulo_eve" class="form-label">Titulo</label>
+      <input type="text" id="titulo_eve" name="titulo_eve" class="form-control" maxlength="150" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="data_eve" class="form-label">Data</label>
+      <input type="date" id="data_eve" name="data_eve" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="local_eve" class="form-label">Local</label>
+      <input type="text" id="local_eve" name="local_eve" class="form-control" maxlength="150" required>
+    </div>
+
+    <div class="page-actions">
+      <button type="submit" class="btn btn-primary">Salvar</button>
+      <a href="/evento" class="btn btn-outline-secondary">Cancelar</a>
+    </div>
+  </form>
+</div>
